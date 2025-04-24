@@ -21,7 +21,7 @@ const navItems = [
 ];
 
 export const Header = () => {
-    return <header className="px-10 py-5 flex items-center ">
+    return <header className="px-10 py-5 flex items-center">
         <div aria-label="logo" className="w-[150px] h-[84px] bg-slate-200 mr-5" />
         <Navbar />
         <LocaleSwitcher />
@@ -33,8 +33,8 @@ export const Header = () => {
 
 const Burger = () => {
     return <Sheet >
-        <SheetTrigger className='block xl:hidden ml-5'><Menu size={32} /></SheetTrigger>
-        <SheetContent side='left' className={'min-w-full md:min-w-xl'}>
+        <SheetTrigger className='block xl:hidden ml-5 text-primary cursor-pointer border-2 border-border px-2 py-1 rounded-lg'><Menu size={32} /></SheetTrigger>
+        <SheetContent side='left' className={'min-w-full md:min-w-xl bg-primary text-white text-2xl'}>
             <SheetHeader>
                 <SheetTitle className={'invisible'}>Burger</SheetTitle>
                 <SheetDescription className={'invisible'}>
@@ -52,7 +52,7 @@ const Burger = () => {
                         ) : (
                             <details className="group">
                                 <summary className="px-4 py-2 cursor-pointer hover:bg-gray-100 rounded">
-                                    {item.label}
+                                    <FormattedMessage id={item.label} />
                                 </summary>
                                 <div className="ml-4 mt-1 space-y-1">
                                     {item.children.map((child, j) => (
@@ -79,7 +79,6 @@ const Navbar = () => {
                             <FormattedMessage id={item.label} />
                             <ChevronDown size={16} className="mt-1 ml-0.5" />
                         </div>
-
                         <div className="absolute left-0 top-full bg-white shadow-md rounded-md  min-w-max z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none group-hover:pointer-events-auto">
                             <ul className="flex flex-col">
                                 {item.children.map((child) => (

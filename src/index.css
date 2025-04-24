@@ -128,5 +128,9 @@
 }
 
 @utility container {
-    @apply max-w-4xl mx-auto px-1.5 md:px-0
+    @apply max-w-7xl mx-auto px-3 xl:px-0 flex flex-col gap-5 md:gap-10
+}
+
+@utility title {
+    @apply text-2xl lg:text-4xl text-center
 }

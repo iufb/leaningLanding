@@ -8,11 +8,14 @@ function App() {
     return (
         <>
             <Header />
-            <Switch>
-                <Route path='/' component={HomePage} />
-                <Route path='/services' component={ServicesPage} />
-                <Route>404: Not Found</Route>
-            </Switch>
+            <main className='bg-slate-50 py-5 min-h-[calc(100svh-124px-64px)]'>
+                <Switch>
+                    <Route path='/' component={HomePage} />
+                    <Route path='/services' component={ServicesPage} />
+                    <Route>404: Not Found</Route>
+                </Switch>
+            </main>
+            <footer className='w-full bg-primary p-5 h-16 text-white'>2025</footer>
         </>
     )
 }
