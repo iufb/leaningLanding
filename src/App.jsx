@@ -1,13 +1,18 @@
-import { Button } from '@/shared/ui/button'
-import { FormattedMessage } from 'react-intl'
-import './App.css'
+import { HomePage } from '@/pages/Home'
+import { ServicesPage } from '@/pages/Services'
+import { Header } from '@/widgets/header'
+import { Route, Switch } from 'wouter'
 
 function App() {
 
     return (
         <>
-            <h1 className='text-4xl text-red-400'> <FormattedMessage id='test' /></h1>
-            <Button> helolo</Button>
+            <Header />
+            <Switch>
+                <Route path='/' component={HomePage} />
+                <Route path='/services' component={ServicesPage} />
+                <Route>404: Not Found</Route>
+            </Switch>
         </>
     )
 }
