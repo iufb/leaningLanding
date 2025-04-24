@@ -1,3 +1,12 @@
 {
-    "test": "en"
+    "navigation.services": "Services",
+    "navigation.studentHouse": "Student House",
+    "navigation.selfGovernment": "Self-Government",
+    "navigation.psychSupport": "Psychological Support Service",
+    "navigation.usefulInfo": "Useful Information",
+    "navigation.events": "Events",
+    "navigation.opportunities": "Opportunities",
+    "navigation.opportunities.students": "For Students",
+    "navigation.opportunities.masters": "For Master's Students",
+    "navigation.opportunities.phd": "For PhD Students"
 }

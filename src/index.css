@@ -124,4 +124,9 @@
     body {
         @apply bg-background text-foreground;
     }
+
+}
+
+@utility container {
+    @apply max-w-4xl mx-auto px-1.5 md:px-0
 }

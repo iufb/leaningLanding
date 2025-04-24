@@ -1,22 +1,25 @@
 import { LocaleSwitcher } from "@/features/LocaleSwitcher";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/shared/ui/sheet";
 import { ChevronDown, Menu } from "lucide-react";
+import { FormattedMessage } from "react-intl";
+
 const navItems = [
-    { label: "Сервисы", href: "/services" },
-    { label: "Дом студентов", href: "/student-house" },
-    { label: "Самоуправление", href: "/self-government" },
-    { label: "Служба психологической помощи", href: "/psychological-support" },
-    { label: "Полезная информация", href: "/useful-info" },
-    { label: "События", href: "/events" },
+    { label: "navigation.services", href: "/services" },
+    { label: "navigation.studentHouse", href: "/student-house" },
+    { label: "navigation.selfGovernment", href: "/self-government" },
+    { label: "navigation.psychSupport", href: "/psychological-support" },
+    { label: "navigation.usefulInfo", href: "/useful-info" },
+    { label: "navigation.events", href: "/events" },
     {
-        label: "Возможности",
+        label: "navigation.opportunities",
         children: [
-            { label: "Студентам", href: "/opportunities/students" },
-            { label: "Магистрантам", href: "/opportunities/masters" },
-            { label: "Докторантам", href: "/opportunities/phd" },
+            { label: "navigation.opportunities.students", href: "/opportunities/students" },
+            { label: "navigation.opportunities.masters", href: "/opportunities/masters" },
+            { label: "navigation.opportunities.phd", href: "/opportunities/phd" },
         ],
     },
 ];
+
 export const Header = () => {
     return <header className="px-10 py-5 flex items-center ">
         <div aria-label="logo" className="w-[150px] h-[84px] bg-slate-200 mr-5" />
@@ -44,7 +47,7 @@ const Burger = () => {
                     <div key={i}>
                         {!item.children ? (
                             <a href={item.href} className="block px-4 py-2 hover:bg-gray-100 rounded">
-                                {item.label}
+                                <FormattedMessage id={item.label} />
                             </a>
                         ) : (
                             <details className="group">
@@ -54,7 +57,7 @@ const Burger = () => {
                                 <div className="ml-4 mt-1 space-y-1">
                                     {item.children.map((child, j) => (
                                         <a key={j} href={child.href} className="block px-4 py-1 hover:bg-gray-100 rounded">
-                                            {child.label}
+                                            <FormattedMessage id={child.label} />
                                         </a>
                                     ))}
                                 </div>
@@ -73,7 +76,7 @@ const Navbar = () => {
                 item.children ? (
                     <li className="relative group">
                         <div className="cursor-pointer flex  items-center group-hover:text-primary">
-                            {item.label}
+                            <FormattedMessage id={item.label} />
                             <ChevronDown size={16} className="mt-1 ml-0.5" />
                         </div>
 
@@ -85,7 +88,7 @@ const Navbar = () => {
                                             href={child.href}
                                             className="px-4 py-2 hover:bg-gray-100 block"
                                         >
-                                            {child.label}
+                                            <FormattedMessage id={child.label} />
                                         </a>
                                     </li>
                                 ))}
@@ -96,7 +99,7 @@ const Navbar = () => {
                 ) : (
                     <li key={item.label}>
                         <a href={item.href} className="hover:underline hover:text-primary hover:transition-colors ">
-                            {item.label}
+                            <FormattedMessage id={item.label} />
                         </a>
                     </li>
                 )

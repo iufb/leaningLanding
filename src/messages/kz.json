@@ -1,3 +1,12 @@
 {
-    "test": "kz"
+    "navigation.services": "Қызметтер",
+    "navigation.studentHouse": "Студенттер үйі",
+    "navigation.selfGovernment": "Өзін-өзі басқару",
+    "navigation.psychSupport": "Психологиялық көмек қызметі",
+    "navigation.usefulInfo": "Пайдалы ақпарат",
+    "navigation.events": "Іс-шаралар",
+    "navigation.opportunities": "Мүмкіндіктер",
+    "navigation.opportunities.students": "Студенттерге",
+    "navigation.opportunities.masters": "Магистранттарға",
+    "navigation.opportunities.phd": "Докторанттарға"
 }
