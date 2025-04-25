@@ -6,12 +6,12 @@ export const HomePage = () => {
     return <section className="container">
         <section className="w-full rounded-lg h-96 bg-slate-200" />
         <section className="flex md:flex-row flex-col gap-5">
-            <FileCard name={'home.guidebook'} link={'1.pdf'} />
-            <FileCard name={'home.evaluationCriteria'} link={'2.pdf'} />
+            <FileCard name={'home.guidebook'} link={'home/1.pdf'} />
+            <FileCard name={'home.evaluationCriteria'} link={'home/2.pdf'} />
         </section>
         <h1 className="title"><FormattedMessage id="home.title" /></h1>
         <section className="flex gap-5 flex-col lg:flex-row">
-            <img className="rounded-lg w-1/3 aspect-[3/4]" src={fileUrl + "dias.jpg"} />
+            <img className="rounded-lg w-1/3 aspect-[3/4]" src={fileUrl + "home/dias.jpg"} />
             <section className="flex flex-col gap-4 text-center justify-center items-center  w-2/3">
                 <h2 className="text-3xl"><FormattedMessage id="home.director" /></h2>
                 <h3 className="text-2xl"><FormattedMessage id="home.dirName" /></h3>
@@ -20,18 +20,18 @@ export const HomePage = () => {
         </section>
 
         <section className="flex md:flex-row flex-col gap-5">
-            <FileCard name={'home.position'} link={'3.pdf'} />
-            <FileCard name={'home.plan'} link={'4.pdf'} />
+            <FileCard name={'home.position'} link={'home/3.pdf'} />
+            <FileCard name={'home.plan'} link={'home/4.pdf'} />
         </section>
 
         <section className="flex flex-col gap-5">
             <h2 className="title"><FormattedMessage id="home.calendar.title" /></h2>
-            <FileCard name={'home.calendar.law.ssoVV'} link={'5.pdf'} />
-            <FileCard name={'home.calendar.humanitarian.ssoVV'} link={'6.pdf'} />
-            <FileCard name={'home.calendar.itEconomy.ssh'} link={'7.pdf'} />
-            <FileCard name={'home.calendar.law.ssh'} link={'8.pdf'} />
-            <FileCard name={'home.calendar.humanitarian.ssh'} link={'9.pdf'} />
-            <FileCard name={'home.calendar.itEconomy.ssoVV'} link={'10.pdf'} />
+            <FileCard name={'home.calendar.law.ssoVV'} link={'home/5.pdf'} />
+            <FileCard name={'home.calendar.humanitarian.ssoVV'} link={'home/6.pdf'} />
+            <FileCard name={'home.calendar.itEconomy.ssh'} link={'home/7.pdf'} />
+            <FileCard name={'home.calendar.law.ssh'} link={'home/8.pdf'} />
+            <FileCard name={'home.calendar.humanitarian.ssh'} link={'home/9.pdf'} />
+            <FileCard name={'home.calendar.itEconomy.ssoVV'} link={'home/10.pdf'} />
         </section>
 
         <section>
@@ -39,14 +39,14 @@ export const HomePage = () => {
                 <FormattedMessage id="home.academicIntegrity.title" />
             </h2>
 
-            <p className="text-center text-lg md:text-xl "><FormattedMessage id="home.academicIntegrity.description" /></p>
+            <p className="text-center text-lg md:text-xl my-5 "><FormattedMessage id="home.academicIntegrity.description" /></p>
             <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-col-3 gap-5">
-                <FileCard name={'home.academicIntegrity.rules'} link={'11.pdf'} />
-                <FileCard name={'home.academicIntegrity.principles'} link={'12.pptx'} />
-                <FileCard name={'home.academicIntegrity.policyCheckWritten'} link={'13.pdf'} />
-                <FileCard name={'home.academicIntegrity.aboutCheckSystems'} link={'14.pdf'} />
-                <FileCard name={'home.academicIntegrity.thesisPlagiarismRegulation'} link={'15.pdf'} />
-                <FileCard name={'home.studentHonorCode'} link={'16.pdf'} />
+                <FileCard name={'home.academicIntegrity.rules'} link={'home/11.pdf'} />
+                <FileCard name={'home.academicIntegrity.principles'} link={'home/12.pptx'} />
+                <FileCard name={'home.academicIntegrity.policyCheckWritten'} link={'home/13.pdf'} />
+                <FileCard name={'home.academicIntegrity.aboutCheckSystems'} link={'home/14.pdf'} />
+                <FileCard name={'home.academicIntegrity.thesisPlagiarismRegulation'} link={'home/15.pdf'} />
+                <FileCard name={'home.studentHonorCode'} link={'home/16.pdf'} />
             </section>
 
         </section>

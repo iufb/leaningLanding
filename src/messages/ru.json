@@ -31,5 +31,15 @@
     "home.academicIntegrity.policyCheckWritten": "Положение о порядке проведения проверки письменных работ на наличие заимствований",
     "home.academicIntegrity.aboutCheckSystems": "О системах проверки письменных работ на наличие заимствований",
     "home.academicIntegrity.thesisPlagiarismRegulation": "Регламент проверки диссертации на использование докторантом материала без ссылки на автора и источник заимствования (плагиат)",
-    "home.studentHonorCode": "Кодекс чести студентов"
+    "home.studentHonorCode": "Кодекс чести студентов",
+    "services.title": "Сервисы",
+    "services.platonus": "АИС \"Platonus\"",
+    "services.university": "АИС \"Университет\"",
+    "services.dotPortal": "ДОТ Портал",
+    "services.library": "Электронная библиотека",
+    "services.vestnik": "Вестник ABU",
+    "services.rules": "Инструкция для обучающегося по использованию личного кабинета АИС Университет",
+    "services.manual.workspace": "Инструкция по использованию рабочего кабинета",
+    "services.manual.midterm": "Инструкция по промежуточной аттестации",
+    "services.manual.final": "Инструкция по итоговой аттестации"
 }

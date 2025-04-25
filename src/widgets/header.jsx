@@ -1,7 +1,9 @@
 import { LocaleSwitcher } from "@/features/LocaleSwitcher";
+import { cn } from "@/shared/lib/utils";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/shared/ui/sheet";
 import { ChevronDown, Menu } from "lucide-react";
 import { FormattedMessage } from "react-intl";
+import { useLocation } from "wouter";
 
 const navItems = [
     { label: "navigation.services", href: "/services" },
@@ -70,6 +72,7 @@ const Burger = () => {
     </Sheet>
 }
 const Navbar = () => {
+    const [location] = useLocation()
     return <nav>
         <ul className="hidden xl:flex flex-wrap gap-6 text-lg text-gray-600 ">
             {navItems.map((item) =>
@@ -97,7 +100,7 @@ const Navbar = () => {
 
                 ) : (
                     <li key={item.label}>
-                        <a href={item.href} className="hover:underline hover:text-primary hover:transition-colors ">
+                        <a href={item.href} className={cn("hover:underline hover:text-primary hover:transition-colors", location.includes(item.href) && "text-primary")}>
                             <FormattedMessage id={item.label} />
                         </a>
                     </li>
