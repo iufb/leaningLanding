@@ -1,4 +1,5 @@
 import { HomePage } from '@/pages/Home'
+import { SelfGovernmentPage } from '@/pages/SelfGovernment'
 import { ServicesPage } from '@/pages/Services'
 import { Header } from '@/widgets/header'
 import { Route, Switch } from 'wouter'
@@ -12,6 +13,7 @@ function App() {
                 <Switch>
                     <Route path='/' component={HomePage} />
                     <Route path='/services' component={ServicesPage} />
+                    <Route path='/self-government' component={SelfGovernmentPage} />
                     <Route>404: Not Found</Route>
                 </Switch>
             </main>

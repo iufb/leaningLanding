@@ -7,7 +7,7 @@ import { useLocation } from "wouter";
 
 const navItems = [
     { label: "navigation.services", href: "/services" },
-    { label: "navigation.studentHouse", href: "/student-house" },
+    { label: "navigation.studentHouse", href: "http://studdom.abu.edu.kz/" },
     { label: "navigation.selfGovernment", href: "/self-government" },
     { label: "navigation.psychSupport", href: "/psychological-support" },
     { label: "navigation.usefulInfo", href: "/useful-info" },
@@ -77,7 +77,7 @@ const Navbar = () => {
         <ul className="hidden xl:flex flex-wrap gap-6 text-lg text-gray-600 ">
             {navItems.map((item) =>
                 item.children ? (
-                    <li className="relative group">
+                    <li key={item.label} className="relative group">
                         <div className="cursor-pointer flex  items-center group-hover:text-primary">
                             <FormattedMessage id={item.label} />
                             <ChevronDown size={16} className="mt-1 ml-0.5" />

@@ -3,6 +3,7 @@ import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export const fileUrl = "https://storage.abu.edu.kz/abu-obuchaushimsya/"
+export const imgFallback = fileUrl + 'image-fallback.jpeg'
 export function cn(...inputs) {
     return twMerge(clsx(inputs));
 }
