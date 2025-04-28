@@ -1,4 +1,5 @@
 import { HomePage } from '@/pages/Home'
+import { PsychSupportPage } from '@/pages/PsychSupport'
 import { SelfGovernmentPage } from '@/pages/SelfGovernment'
 import { ServicesPage } from '@/pages/Services'
 import { Header } from '@/widgets/header'
@@ -14,6 +15,8 @@ function App() {
                     <Route path='/' component={HomePage} />
                     <Route path='/services' component={ServicesPage} />
                     <Route path='/self-government' component={SelfGovernmentPage} />
+                    <Route path='/psychological-support' component={PsychSupportPage} />
+
                     <Route>404: Not Found</Route>
                 </Switch>
             </main>
