@@ -26,43 +26,43 @@ const selfgovermentList = [
         label: "selfgoverment.everest",
         img: "selfgoverment/everestlogo.jpg",
         leaderImg: "selfgoverment/everestleader.jpg",
-        number: "+7 700 000 0003",
-        email: "everest@example.com",
+        number: "+7 708 194 9129",
+        email: "dileorius",
     },
     {
         label: "selfgoverment.jastarRuhy",
         img: "selfgoverment/jastarlogog.jpg",
         leaderImg: "selfgoverment/jastarleader.jpg",
-        number: "+7 700 000 0004",
-        email: "jastar@example.com",
+        number: "+7 700 294 2023",
+        email: "yerasyl_nurymuly",
     },
     {
         label: "selfgoverment.jaidarman",
         img: "selfgoverment/jaidamanlogo.jpg",
         leaderImg: "selfgoverment/jaidamanleader.jpg",
-        number: "+7 700 000 0005",
-        email: "jaidarman@example.com",
+        number: "+7 7786502408",
+        email: "Jaidarman_bokeikhan",
     },
     {
         label: "selfgoverment.lawyers",
         img: "selfgoverment/lawyerslogo.jpg",
         leaderImg: "",
-        number: "+7 700 000 0006",
-        email: "lawyers@example.com",
+        number: "+7 7471083795",
+        email: "@smu._bokeikhan",
     },
     {
         label: "selfgoverment.urker",
         img: "selfgoverment/urkerlogo.png",
         leaderImg: "selfgoverment/urkerleader.jpg",
-        number: "+7 700 000 0007",
-        email: "urker@example.com",
+        number: "+7 7759764181",
+        email: "@urker_bokeikhan",
     },
     {
         label: "selfgoverment.enactus",
         img: "selfgoverment/enactuslogo.png",
         leaderImg: "selfgoverment/enactusleader.jpg",
-        number: "+7 700 000 0008",
-        email: "enactus@example.com",
+        number: "+7 7081686118",
+        email: "",
     },
 ];
 
@@ -103,7 +103,7 @@ const GovermentItem = ({ goverment: s }) => {
                         <h3 className="text-xl font-bold"><FormattedMessage id="selfgoverment.leader" /></h3>
                         <h4><FormattedMessage id={s.label + '.leader'} /></h4>
                         <a className="flex gap-2" href={`tel:${s.number}`}><PhoneIcon /> {s.number}</a>
-                        <a className="flex gap-2" href={`mailto:${s.email}`}><Mail />{s.email}</a>
+                        {s.email && <a className="flex gap-2" href={`mailto:${s.email}`}><Mail />{s.email}</a>}
                     </section>
 
 
