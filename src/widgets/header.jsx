@@ -27,10 +27,10 @@ const navItems = [
 ];
 
 export const Header = () => {
-    return <header className="px-10 py-5 flex items-center">
-        <Link href="/"><div aria-label="logo" className="w-[150px] h-[84px] bg-slate-200 mr-5" /></Link>
+    return <header className="px-10 py-5 flex items-center justify-between">
+        <Link className="w-[150px] h-[84px] mr-5 flex items-center justify-center" href="/"><img aria-label="logo" src="/abu-logo.png" /></Link>
         <Navbar />
-        <LocaleSwitcher />
+        <LocaleSwitcher className={'xl:flex hidden'} />
         <Burger />
 
     </header>
@@ -72,6 +72,7 @@ const Burger = () => {
                     </div>
                 ))}
             </nav>
+            <LocaleSwitcher className={'mt-auto mx-auto mb-5 text-white'} />
         </SheetContent>
     </Sheet>
 }
