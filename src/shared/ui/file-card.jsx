@@ -9,6 +9,11 @@ export const FileCard = ({ name, link, className, ...props }) => {
     const [finalUrl, setFinalUrl] = useState("");
 
     useEffect(() => {
+        if (link.startsWith('https')) {
+            setFinalUrl(link)
+            return;
+        }
+
         if (!link) {
             setFinalUrl(""); // or handle it differently
             return;

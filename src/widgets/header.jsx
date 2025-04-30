@@ -3,28 +3,32 @@ import { cn } from "@/shared/lib/utils";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/shared/ui/sheet";
 import { ChevronDown, Menu } from "lucide-react";
 import { FormattedMessage } from "react-intl";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 
 const navItems = [
     { label: "navigation.services", href: "/services" },
     { label: "navigation.studentHouse", href: "http://studdom.abu.edu.kz/" },
     { label: "navigation.selfGovernment", href: "/self-government" },
     { label: "navigation.psychSupport", href: "/psychological-support" },
-    { label: "navigation.usefulInfo", href: "/useful-info" },
+    {
+        label: "navigation.usefulInfo",
+        children: [
+            { label: "navigation.usefulInfo.students", href: "/usefulInfo/students" },
+            { label: "navigation.usefulInfo.masters", href: "/usefulInfo/masters" },
+            { label: "navigation.usefulInfo.phd", href: "/usefulInfo/phd" },
+        ],
+    },
     { label: "navigation.events", href: "/events" },
     {
         label: "navigation.opportunities",
-        children: [
-            { label: "navigation.opportunities.students", href: "/opportunities/students" },
-            { label: "navigation.opportunities.masters", href: "/opportunities/masters" },
-            { label: "navigation.opportunities.phd", href: "/opportunities/phd" },
-        ],
+        href: "/opportunities",
+
     },
 ];
 
 export const Header = () => {
     return <header className="px-10 py-5 flex items-center">
-        <div aria-label="logo" className="w-[150px] h-[84px] bg-slate-200 mr-5" />
+        <Link href="/"><div aria-label="logo" className="w-[150px] h-[84px] bg-slate-200 mr-5" /></Link>
         <Navbar />
         <LocaleSwitcher />
         <Burger />
@@ -48,17 +52,17 @@ const Burger = () => {
                 {navItems.map((item, i) => (
                     <div key={i}>
                         {!item.children ? (
-                            <a href={item.href} className="block px-4 py-2 hover:bg-gray-100 rounded">
+                            <a href={item.href} className="block px-4 py-2 hover:opacity-75 rounded">
                                 <FormattedMessage id={item.label} />
                             </a>
                         ) : (
                             <details className="group">
-                                <summary className="px-4 py-2 cursor-pointer hover:bg-gray-100 rounded">
+                                <summary className="px-4 py-2 cursor-pointer hover:opacity-75 rounded">
                                     <FormattedMessage id={item.label} />
                                 </summary>
                                 <div className="ml-4 mt-1 space-y-1">
                                     {item.children.map((child, j) => (
-                                        <a key={j} href={child.href} className="block px-4 py-1 hover:bg-gray-100 rounded">
+                                        <a key={j} href={child.href} className="block px-4 py-1 hover:opacity-75 rounded">
                                             <FormattedMessage id={child.label} />
                                         </a>
                                     ))}
@@ -88,7 +92,7 @@ const Navbar = () => {
                                     <li key={child.label}>
                                         <a
                                             href={child.href}
-                                            className="px-4 py-2 hover:bg-gray-100 block"
+                                            className={cn("px-4 py-2 hover:bg-gray-100 block", location.includes(child.href) && "text-primary")}
                                         >
                                             <FormattedMessage id={child.label} />
                                         </a>
@@ -107,7 +111,7 @@ const Navbar = () => {
                 )
             )}
         </ul>
-    </nav>
+    </nav >
 }
 
 

@@ -10,12 +10,12 @@ export const HomePage = () => {
             <FileCard name={'home.evaluationCriteria'} link={'home/2.pdf'} />
         </section>
         <h1 className="title"><FormattedMessage id="home.title" /></h1>
-        <section className="flex gap-5 flex-col lg:flex-row">
-            <img className="rounded-lg w-1/3 aspect-[3/4]" src={fileUrl + "home/dias.jpg"} />
+        <section className="flex gap-5 flex-col items-center lg:flex-row">
+            <img className="rounded-lg w-full lg:w-[30%] aspect-square" src={fileUrl + "home/dias.jpg"} />
             <section className="flex flex-col gap-4 text-center justify-center items-center  w-2/3">
-                <h2 className="text-3xl"><FormattedMessage id="home.director" /></h2>
-                <h3 className="text-2xl"><FormattedMessage id="home.dirName" /></h3>
-                <a className="text-xl" href="mailto:dias_101@mail.ru">dias_101@mail.ru</a>
+                <h2 className="text-2xl md:text-3xl"><FormattedMessage id="home.director" /></h2>
+                <h3 className="text-xl md:text-2xl"><FormattedMessage id="home.dirName" /></h3>
+                <a className="text-lg md:text-xl" href="mailto:dias_101@mail.ru">dias_101@mail.ru</a>
             </section>
         </section>
 
