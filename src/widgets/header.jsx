@@ -13,7 +13,7 @@ import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "wouter";
 
 const navItems = [
-  { label: "navigation.departament", href: "/departament" },
+  { label: "navigation.department", href: "/department" },
   { label: "navigation.selfGovernment", href: "/self-government" },
   // { label: "navigation.services", href: "/services" },
   { label: "navigation.studentHouse", href: "http://studdom.abu.edu.kz/" },

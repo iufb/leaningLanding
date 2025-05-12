@@ -1,4 +1,6 @@
 import { Button } from "@/shared/ui/button";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 import {
   Carousel,
   CarouselContent,
@@ -13,8 +15,8 @@ const slider = ["/333.JPG", "/555.jpg", "/1111.JPG", "/2222.JPG", "/4444.jpeg"];
 export const HomePage = () => {
   return (
     <section className="container">
-      <section className="grid grid-rows-2 lg:grid-cols-[1fr_2fr] gap-4  ">
-        <section className="shadow-2xl border rounded-lg flex flex-col gap-4 p-4 ">
+      <section className="flex  md:flex-row flex-col gap-4  ">
+        <section className="shadow-2xl w-full md:w-1/3 border rounded-lg flex flex-col gap-4 p-4 ">
           <h2 className="mb-10">Title</h2>
           <Link>
             <Button
@@ -36,7 +38,21 @@ export const HomePage = () => {
             <Button className={"w-full"}>Вступите</Button>
           </Link>
         </section>
-        <Carousel>
+        <div className="w-full md:w-2/3 overflow-hidden ">
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            className="h-[317px] rounded-lg"
+          >
+            {slider.map((s) => (
+              <SwiperSlide key={s} className="bg-red-200  h-[317px]">
+                {s}
+                {/* <img src={"/slider" + s} /> */}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        {/* <Carousel>
           <CarouselContent>
             {slider.map((s, index) => (
               <CarouselItem
@@ -47,7 +63,7 @@ export const HomePage = () => {
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />
-        </Carousel>
+        </Carousel> */}
       </section>
     </section>
   );
