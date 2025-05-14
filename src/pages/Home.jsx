@@ -17,26 +17,35 @@ export const HomePage = () => {
     <section className="container">
       <section className="flex  md:flex-row flex-col gap-4  ">
         <section className="shadow-2xl w-full md:w-1/3 border rounded-lg flex flex-col gap-4 p-4 ">
-          <h2 className="mb-10">Title</h2>
-          <Link>
+          <h2 className="mb-10 font-bold ">
+            <FormattedMessage id="home.hero.left.title" />
+          </h2>
+          <a href="https://www.youtube.com/watch?v=GIneNYegXJg" target="_blank">
             <Button
               variant={"outline"}
               className={"w-full border-primary text-primary"}
             >
-              Вступите
+              YouTube
             </Button>
-          </Link>
-          <Link>
+          </a>
+          <a href="https://www.instagram.com/kdm_bokeikhan/" target="_blank">
             <Button
               variant={"outline"}
               className={"w-full border-primary text-primary"}
             >
-              Вступите
+              Instagram
             </Button>
-          </Link>
-          <Link className={"w-full"}>
-            <Button className={"w-full"}>Вступите</Button>
-          </Link>
+          </a>
+
+          <Button className={"w-full"}>
+            <a
+              className={"w-full"}
+              href="https://forms.gle/abEFgD8P8J6mKC9g7 "
+              target="_blank"
+            >
+              <FormattedMessage id="home.hero.left.reg" />
+            </a>
+          </Button>
         </section>
         <div className="w-full md:w-2/3 overflow-hidden ">
           <Swiper
