@@ -4,7 +4,6 @@ import { FormattedMessage } from "react-intl";
 
 import { Badge } from "@/shared/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card";
-import { Film, Gift, Megaphone, Users } from "lucide-react";
 
 export const OpportunitiesPage = () => {
     const { locale } = useLocale()
@@ -320,7 +319,7 @@ function ContestCard(content) {
         <Card className="max-w-xl mx-auto mt-8 shadow-xl rounded-2xl p-4 border border-gray-200">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-xl">
-                    <Megaphone className="text-red-600" /> {content.title}
+                    {content.title}
                 </CardTitle>
                 <p className="text-sm text-muted-foreground">{content.subtitle}</p>
             </CardHeader>
@@ -330,7 +329,7 @@ function ContestCard(content) {
 
                 <div>
                     <h3 className="font-semibold flex items-center gap-2">
-                        <Film className="w-5 h-5" /> {content.directionsTitle}
+                        {content.directionsTitle}
                     </h3>
                     <ul className="list-disc list-inside pl-2 space-y-1">
                         {content.directions.map((item, idx) => (
@@ -341,14 +340,14 @@ function ContestCard(content) {
 
                 <div>
                     <h3 className="font-semibold flex items-center gap-2">
-                        <Users className="w-5 h-5" /> {content.participantsTitle}
+                        {content.participantsTitle}
                     </h3>
                     <p>{content.participants}</p>
                 </div>
 
                 <div>
                     <h3 className="font-semibold flex items-center gap-2">
-                        <Gift className="w-5 h-5" /> {content.rewardsTitle}
+                        {content.rewardsTitle}
                     </h3>
                     <p>{content.rewards}</p>
                 </div>

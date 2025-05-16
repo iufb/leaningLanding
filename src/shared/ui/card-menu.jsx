@@ -1,20 +1,13 @@
-import { useLocale } from "@/shared/context/locale"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/shared/ui/dialog"
-import { ArrowRight, FileIcon } from "lucide-react"
 import { FormattedMessage } from "react-intl"
 
-export const CardMenu = ({ trigger, documents }) => {
-    const { locale } = useLocale()
+export const CardMenu = ({ trigger, img, children }) => {
     return <Dialog>
         <DialogTrigger>
-            <section className="border p-5 rounded-lg min-h-52 flex  flex-col justify-between shadow-xl">
-                <h3 className="text-xl md:text-2xl line-clamp-4"><FormattedMessage id={trigger} /></h3>
+            <section className="border  p-5 rounded-lg gap-5 min-h-52 flex  flex-col justify-between shadow-xl">
+                <img src={img} className="aspect-square max-w-xl h-auto rounded-md" />
+                <h3 className="text-2xl font-semibold text-gray-800 tracking-tight mb-2"><FormattedMessage id={trigger} /></h3>
 
-                <section
-                    className="flex gap-2 items-center text-primary "
-                >
-                    <FormattedMessage id="card.link" /> <ArrowRight />
-                </section>
             </section>
         </DialogTrigger>
         <DialogContent className={'max-h-screen overflow-auto'}>
@@ -25,9 +18,7 @@ export const CardMenu = ({ trigger, documents }) => {
                     and remove your data from our servers.
                 </DialogDescription>
             </DialogHeader>
-            <section className="flex flex-col gap-5 text-lg ">
-                {documents[locale].map(d => <a key={d.url} className="grid grid-cols-[auto_1fr] items-center gap-4" target="_blank" href={d.url}><FileIcon /> {d.title}</a>)}
-            </section>
+            {children}
         </DialogContent>
     </Dialog>
 
