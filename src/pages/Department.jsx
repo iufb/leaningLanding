@@ -23,7 +23,7 @@ const fileData = {
     ],
 };
 const data = {
-    imgs: ["/dias.jpg", "", "", "/ajar.jpg", "/anar.jpg", ""],
+    imgs: ["/dias.jpg", "", "", "/ajar.jpg", "/anar.jpg", "/ris.jpg"],
     ru: [
         { role: "Руководитель", name: "Смагулов Диас Ернурович" },
         { role: "Специалист", name: "Балташева Асем Мұратбекқызы" },
