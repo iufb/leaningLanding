@@ -2,11 +2,18 @@ import { useLocale } from "@/shared/context/locale";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/shared/ui/table";
 import { FormattedMessage } from "react-intl";
 
+import { Badge } from "@/shared/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card";
+import { Film, Gift, Megaphone, Users } from "lucide-react";
+
 export const OpportunitiesPage = () => {
+    const { locale } = useLocale()
     return <section className="container">
         <h1 className="title"><FormattedMessage id="opportunities.title" /></h1>
         <section className="w-full bg-slate-200 rounded-lg h-96" />
         <h2 className="title"><FormattedMessage id="opportunities.schedule" /></h2>
+        <ContestCard {...contestData[locale]} />
+
         <SportTable />
     </section>
 }
@@ -238,3 +245,124 @@ const SportTable = () => {
     </div>
 }
 
+
+const contestData = {
+    kz: {
+        title: "📢 БАЙҚАУҒА ШАҚЫРУ!",
+        subtitle: "🎯 Құрметті студенттер мен жастар белсенділері!",
+        description:
+            'Сіздерді "Терроризмге қарсы жастар" атты қалалық байқауға қатысуға шақырамыз. Байқаудың мақсаты – заңға бағынатын мінез-құлықты қалыптастыру, құқықтық мәдениетті арттыру және жастардың азаматтық жауапкершілігін нығайту.',
+        directionsTitle: "📌 Байқау бағыттары:",
+        directions: [
+            "Бейнероликтер, әлеуметтік роликтер",
+            "Плакаттар, инфографика",
+        ],
+        participantsTitle: "👥 Қатысушылар:",
+        participants:
+            "Колледждер мен жоғары оқу орындарының студенттері, жастар ұйымдары, бастамашыл топтар.",
+        rewardsTitle: "🏆 Марапаттар:",
+        rewards:
+            "Озық қатысушылар дипломдармен және естелік сыйлықтармен марапатталады!",
+        note:
+            "❗ Азаматтық ұстанымыңызды білдіруге және қоғам қауіпсіздігіне үлес қосуға мүмкіндік жіберіп алмаңыз!",
+        hashtags: [
+            "#ЖастарТерроризмгеҚарсы",
+            "#Антитеррор",
+            "#ҚауіпсізҚоғам",
+        ],
+    },
+    ru: {
+        title: "📢 ОБЪЯВЛЕНИЕ О КОНКУРСЕ!",
+        subtitle: "🎯 Уважаемые студенты и молодёжные активисты!",
+        description:
+            'Приглашаем вас принять участие в городском конкурсе "Молодёжь против терроризма", целью которого является формирование законопослушного поведения, повышение правовой культуры и укрепление гражданской ответственности молодёжи.',
+        directionsTitle: "📌 Направления конкурса:",
+        directions: [
+            "Видеоролики, социальные ролики",
+            "Плакаты, инфографика",
+        ],
+        participantsTitle: "👥 Участники:",
+        participants:
+            "Студенты колледжей и университетов, молодёжные организации, инициативные группы.",
+        rewardsTitle: "🏆 Награды:",
+        rewards:
+            "Лучшие участники будут награждены дипломами и памятными призами!",
+        note:
+            "❗ Не упусти возможность заявить свою гражданскую позицию и внести вклад в безопасность общества!",
+        hashtags: [
+            "#МолодёжьПротивТерроризма",
+            "#Антитеррор",
+            "#МыЗаБезопасность",
+        ],
+    },
+    en: {
+        title: "📢 CALL FOR PARTICIPATION!",
+        subtitle: "🎯 Dear students and youth activists!",
+        description:
+            'We invite you to take part in the citywide contest "Youth Against Terrorism", aimed at promoting law-abiding behavior, enhancing legal awareness, and strengthening the civic responsibility of young people.',
+        directionsTitle: "📌 Contest Categories:",
+        directions: ["Video clips, social videos", "Posters, infographics"],
+        participantsTitle: "👥 Participants:",
+        participants:
+            "College and university students, youth organizations, and initiative groups.",
+        rewardsTitle: "🏆 Awards:",
+        rewards:
+            "Top participants will be awarded certificates and memorable prizes!",
+        note:
+            "❗ Don’t miss the chance to express your civic stance and contribute to public safety!",
+        hashtags: ["#YouthAgainstTerrorism", "#AntiTerror", "#WeStandForSafety"],
+    },
+}
+
+
+function ContestCard(content) {
+    return (
+        <Card className="max-w-xl mx-auto mt-8 shadow-xl rounded-2xl p-4 border border-gray-200">
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-xl">
+                    <Megaphone className="text-red-600" /> {content.title}
+                </CardTitle>
+                <p className="text-sm text-muted-foreground">{content.subtitle}</p>
+            </CardHeader>
+
+            <CardContent className="space-y-4">
+                <p>{content.description}</p>
+
+                <div>
+                    <h3 className="font-semibold flex items-center gap-2">
+                        <Film className="w-5 h-5" /> {content.directionsTitle}
+                    </h3>
+                    <ul className="list-disc list-inside pl-2 space-y-1">
+                        {content.directions.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 className="font-semibold flex items-center gap-2">
+                        <Users className="w-5 h-5" /> {content.participantsTitle}
+                    </h3>
+                    <p>{content.participants}</p>
+                </div>
+
+                <div>
+                    <h3 className="font-semibold flex items-center gap-2">
+                        <Gift className="w-5 h-5" /> {content.rewardsTitle}
+                    </h3>
+                    <p>{content.rewards}</p>
+                </div>
+
+                <p className="text-red-600 font-medium">{content.note}</p>
+
+                <div className="flex flex-wrap gap-2 mt-4">
+                    {content.hashtags.map((tag, idx) => (
+                        <Badge key={idx} variant="outline">
+                            {tag}
+                        </Badge>
+                    ))}
+                </div>
+            </CardContent>
+        </Card>
+    )
+}

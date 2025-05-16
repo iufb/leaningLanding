@@ -36,7 +36,7 @@ export const FileCard = ({ name, link, className, ...props }) => {
                 try {
                     const fallbackRes = await fetch(fallbackUrl, { method: "HEAD" });
                     setFinalUrl(fallbackRes.ok ? fallbackUrl : "");
-                } catch (fallbackError) {
+                } catch (e) {
                     setFinalUrl("");
                 }
             }

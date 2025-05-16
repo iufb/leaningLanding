@@ -6,23 +6,24 @@ const fileData = {
     ru: [
         { name: "Бюджет", link: "/department/budget.pdf" },
         { name: "Отчёт", link: "/department/report.pdf" },
-        { name: "Положение", link: "/department/regulation.pdf" },
+        { name: "Положение", link: "/department/pos.pdf" },
         { name: "План", link: "/department/plan.pdf" },
     ],
     kz: [
         { name: "Бюджет", link: "/department/budget.pdf" },
         { name: "Есеп", link: "/department/report.pdf" },
-        { name: "Ереже", link: "/department/regulation.pdf" },
+        { name: "Ереже", link: "/department/pos.pdf" },
         { name: "Жоспар", link: "/department/plan.pdf" },
     ],
     en: [
         { name: "Budget", link: "/department/budget.pdf" },
         { name: "Report", link: "/department/report.pdf" },
-        { name: "Regulation", link: "/department/regulation.pdf" },
+        { name: "Regulation", link: "/department/pos.pdf" },
         { name: "Plan", link: "/department/plan.pdf" },
     ],
 };
 const data = {
+    imgs: ["/dias.jpg", "", "", "/ajar.jpg", "/anar.jpg", ""],
     ru: [],
     en: [],
     kz: [
@@ -78,10 +79,10 @@ export const DepartmentPage = () => {
                 <FormattedMessage id="department.title" />
             </h1>
             <section className="flex flex-col gap-10">
-                <MemberCard {...data[locale][0]} className="mx-auto" />
-                <section className="flex gap-10 flex-wrap xl:flex-nowrap ">
-                    {data[locale].slice(1).map((d) => (
-                        <MemberCard key={d.name} {...d} className={"mx-auto"} />
+                <MemberCard {...data[locale][0]} img={data.imgs[0]} className="mx-auto" />
+                <section className="flex gap-10 flex-wrap  ">
+                    {data[locale].slice(1).map((d, i) => (
+                        <MemberCard key={d.name} {...d} img={data.imgs[i + 1]} className={"mx-auto"} />
                     ))}
                 </section>
             </section>
