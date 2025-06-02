@@ -1,25 +1,25 @@
-# Этап сборки
-FROM node:22-alpine AS builder
-WORKDIR /app
+# Step 1: Build the Vite app
+FROM node:18-alpine AS build
 
-# Копируем package.json и package-lock.json, устанавливаем зависимости
+WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Копируем исходники и собираем проект
 COPY . .
 RUN npm run build
 
-# Этап рантайма
-FROM node:22-alpine
+# Step 2: Serve with 'serve'
+FROM node:18-alpine
+
 WORKDIR /app
 
-# Устанавливаем глобально пакет serve
+# Install `serve` globally
 RUN npm install -g serve
 
-# Копируем собранные файлы из этапа builder
-COPY --from=builder /app/dist ./dist
+# Copy built files
+COPY --from=build /app/dist ./dist
 
+EXPOSE 3000
 
-# Запускаем serve в режиме SPA (single-page app)
-CMD ["serve", "-s", "dist", "-l", "80"]
+# Serve static files
+CMD ["serve", "-s", "dist", "-l", "3000"]
