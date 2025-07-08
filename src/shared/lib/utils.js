@@ -2,7 +2,7 @@
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-export const fileUrl = "https://backnew.abu.edu.kz/uploads/ob"
+export const fileUrl = import.meta.env.VITE_FILEURL
 export const imgFallback = fileUrl + '/image-fallback.jpeg'
 export function cn(...inputs) {
     return twMerge(clsx(inputs));
