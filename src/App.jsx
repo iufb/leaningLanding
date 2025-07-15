@@ -10,6 +10,7 @@ import { UsefulInfoStudentsPage } from "@/pages/usefulinfo/Students";
 import { useLocale } from "@/shared/context/locale";
 import { Header } from "@/widgets/header";
 import { MessageSquareX } from "lucide-react";
+import { useEffect } from "react";
 import { FormattedMessage } from "react-intl";
 import { Link, Route, Switch } from "wouter";
 import { DepartmentPage } from "./pages/Department";
@@ -32,8 +33,16 @@ const NotFoundView = () => {
         </section>
     );
 };
+const titles = {
+    ru: "Жизнь университета",
+    kz: "Университеттегі өмір",
+    en: "University Life"
+}
 function App() {
     const { locale } = useLocale()
+    useEffect(() => {
+        document.title = titles[locale]
+    }, [locale])
     return (
         <>
             <Header />
