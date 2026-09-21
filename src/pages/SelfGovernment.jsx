@@ -9,7 +9,7 @@ import {
   DrawerTrigger,
 } from "@/shared/ui/drawer";
 import { FileCard } from "@/shared/ui/file-card";
-import { ArrowUpRight, FileText, Instagram, Mail, PhoneIcon, X } from "lucide-react";
+import { ArrowUpRight, FileText, Instagram, Mail, MessageCircle, Music2, PhoneIcon, X } from "lucide-react";
 import { FormattedMessage, useIntl } from "react-intl";
 
 const selfgovermentList = [
@@ -17,22 +17,30 @@ const selfgovermentList = [
     label: "selfgoverment.ask",
     img: "/selfgoverment/ask/logo.png",
     leaderImg: "/selfgoverment/ask/leader.png",
-    number: "+7 705 635 4927",
+    number: "+7 705 635 49 27",
     instagram: "qsa_bokeikhan",
+    instagramUrl: "https://www.instagram.com/qsa_bokeikhan?stkn=OHZva2J6cWlwdXJ1",
+    whatsappUrl: "https://chat.whatsapp.com/B6t3jvLP2osCYhFHrtcjCM?s=cl&p=i&mlu=4&ilr=4",
+    tiktokUrl: "https://www.tiktok.com/@qsa_bokeikhan?_r=1&_t=ZS-99uRECvqQLa",
+    registration: true,
     documents: [
       { name: "selfgoverment.plan", link: "/selfgoverment/ask/plan.pdf" },
       { name: "selfgoverment.studentlist", link: "/selfgoverment/ask/list.pdf" },
-      { name: "selfgoverment.ask.leaders", link: "/selfgoverment/ask/leaders.pdf" },
-      { name: "selfgoverment.ask.regulations", link: "/selfgoverment/ask/regulations.pdf" },
-      { name: "selfgoverment.ask.independence", link: "/selfgoverment/ask/independence-day.pdf" },
+      { name: "selfgoverment.structure", link: "/selfgoverment/ask/leaders.pdf" },
+      { name: "selfgoverment.regulations", link: "/selfgoverment/ask/regulations.pdf" },
+      { name: "selfgoverment.report", link: "/selfgoverment/ask/independence-day.pdf" },
     ],
   },
   {
     label: "selfgoverment.everest",
     img: "/selfgoverment/everest/logo.jpg",
     leaderImg: "/selfgoverment/everest/leader.jpg",
-    number: "+7 705 268 2275",
+    number: "+7 705 268 22 75",
     instagram: "everest_bokeikhan",
+    instagramUrl: "https://www.instagram.com/everest_bokeikhan?stkn=MWtzaWswbnZhNXhucg%3D%3D&utm_source=qr",
+    whatsappUrl: "https://chat.whatsapp.com/G6MbP3xWxv15hjE9H4DEJW?s=cl&p=i&mlu=4&ilr=4",
+    tiktokUrl: "https://www.tiktok.com/@everest_idc?_r=1&_t=ZS-99uQrJPcec0",
+    registration: true,
     content: "selfgoverment.everest.content2026",
     documents: [
       { name: "selfgoverment.plan", link: "/selfgoverment/everest/plan.pdf" },
@@ -46,8 +54,11 @@ const selfgovermentList = [
     label: "selfgoverment.jastarRuhy",
     img: "/selfgoverment/jastar-ruhy/logo.jpg",
     leaderImg: "/selfgoverment/jastar-ruhy/leader.jpg",
-    number: "+7 705 408 3316",
+    number: "+7 700 677 03 14",
     instagram: "jastar_ruhy_bokeikhan",
+    instagramUrl: "https://www.instagram.com/jastar_ruhy_bokeikhan?stkn=ejJraDNhcHhueGl1&wa_status_inline=true",
+    whatsappUrl: "https://chat.whatsapp.com/E9Fdll4IRxN2unQ8JQo5pd?mode=gi_t",
+    tiktokUrl: "https://www.tiktok.com/@jastar_ruhy_bokeikhan?_r=1&_t=ZS-99uSL3YEVOu",
     content: "selfgoverment.jastarRuhy.content2026",
     documents: [
       { name: "selfgoverment.plan", link: "/selfgoverment/jastar-ruhy/plan.pdf" },
@@ -60,8 +71,12 @@ const selfgovermentList = [
     label: "selfgoverment.lawyers",
     img: "/selfgoverment/lawyers/logo.jpg",
     leaderImg: "/selfgoverment/lawyers/leader.jpg",
-    number: "+7 771 538 97 20",
+    number: "+7 771 538 9720",
     instagram: "smu._bokeikhan",
+    instagramUrl: "https://www.instagram.com/smu._bokeikhan?stkn=MWJhbmhiaHpuaGlz",
+    whatsappUrl: "https://chat.whatsapp.com/HNchpPGfW9FCjgO1oRndfD?s=sw&p=i&mlu=4&ilr=4",
+    tiktokUrl: "https://www.tiktok.com/@_smu_bokeikhan?_r=1&_t=ZS-99uTk8pVaPy",
+    registration: true,
     content: "selfgoverment.lawyers.content2026",
     documents: [
       { name: "selfgoverment.plan", link: "/selfgoverment/lawyers/plan.pdf" },
@@ -75,13 +90,16 @@ const selfgovermentList = [
     label: "selfgoverment.urker",
     img: "/selfgoverment/urker/logo.jpg",
     leaderImg: "/selfgoverment/urker/leader.jpg",
-    number: "+7 706 707 1029",
+    number: "+7 706 707 10 29",
     instagram: "urker_bokeikhan",
+    instagramUrl: "https://www.instagram.com/urker_bokeikhan?stkn=MWFsN3l2ZTg0amxvcw==",
+    whatsappUrl: "https://chat.whatsapp.com/Cv5k5ru9ZSB2bTd2iLszbe?s=cl&p=i&mlu=4&ilr=4",
+    tiktokUrl: "https://www.tiktok.com/@urker_bokeikhan?_r=1&_t=ZS-99uS3b9YA1F",
     content: "selfgoverment.urker.content2026",
     documents: [
+      { name: "selfgoverment.plan", link: "/selfgoverment/urker/plan.pdf" },
       { name: "selfgoverment.studentlist", link: "/selfgoverment/urker/list.pdf" },
       { name: "selfgoverment.structure", link: "/selfgoverment/urker/structure-2026-2027.pdf" },
-      { name: "selfgoverment.structureAdditional", link: "/selfgoverment/urker/structure.pdf" },
       { name: "selfgoverment.regulations", link: "/selfgoverment/urker/regulations.pdf" },
     ],
   },
@@ -230,7 +248,7 @@ const GovermentItem = ({ goverment: s, index }) => {
               {s.instagram && (
                 <a
                     className="flex items-center gap-2 rounded-full bg-stone-100 px-4 py-2.5 text-sm font-medium transition-colors hover:bg-primary hover:text-white"
-                  href={`https://www.instagram.com/${s.instagram}/`}
+                  href={s.instagramUrl || `https://www.instagram.com/${s.instagram}/`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -249,15 +267,19 @@ const GovermentItem = ({ goverment: s, index }) => {
               }}
             />
 
-            <div
-              className="mt-5 break-words text-base leading-8 text-stone-700 empty:hidden md:text-lg [&_a]:text-primary [&_a]:underline"
-              dangerouslySetInnerHTML={{
-                __html: formatMessage({
-                  id: s.label + ".connect",
-                  defaultMessage: " ",
-                }),
-              }}
-            />
+            <div className="mt-8 border-t border-stone-100 pt-7">
+              {s.registration && (
+                <h4 className="mb-4 text-lg font-bold text-stone-950">
+                  <FormattedMessage id="selfgoverment.registration" />
+                </h4>
+              )}
+              <div className="grid gap-3 md:grid-cols-2">
+                <ContactLink icon={<PhoneIcon className="h-5 w-5" />} label="selfgoverment.contactPhone" href={`tel:${s.number.replaceAll(" ", "")}`} value={s.number} />
+                <ContactLink icon={<MessageCircle className="h-5 w-5" />} label="selfgoverment.whatsapp" href={s.whatsappUrl} />
+                <ContactLink icon={<Instagram className="h-5 w-5" />} label="selfgoverment.instagram" href={s.instagramUrl} />
+                <ContactLink icon={<Music2 className="h-5 w-5" />} label="selfgoverment.tiktok" href={s.tiktokUrl} />
+              </div>
+            </div>
           </section>
 
           <section className="shrink-0">
@@ -291,3 +313,24 @@ const GovermentItem = ({ goverment: s, index }) => {
     </Drawer>
   );
 };
+
+const ContactLink = ({ icon, label, href, value }) => (
+  <a
+    className="group/contact flex min-w-0 items-center gap-3 rounded-2xl bg-stone-50 p-4 transition-colors hover:bg-primary/5"
+    href={href}
+    target={href.startsWith("http") ? "_blank" : undefined}
+    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+  >
+    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
+      {icon}
+    </span>
+    <span className="min-w-0">
+      <span className="block text-sm font-semibold text-stone-950">
+        <FormattedMessage id={label} />
+      </span>
+      <span className="block truncate text-sm text-stone-500 group-hover/contact:text-primary">
+        {value || href}
+      </span>
+    </span>
+  </a>
+);
