@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { FormattedMessage } from "react-intl";
 import { Link, Route, Switch } from "wouter";
 import { DepartmentPage } from "./pages/Department";
+import { ComitetPage } from "./pages/Comitet";
 
 const NotFoundView = () => {
     return (
@@ -52,6 +53,7 @@ function App() {
                     <Route path="/services" component={ServicesPage} />
                     <Route path="/department" component={DepartmentPage} />
                     <Route path="/self-government" component={SelfGovernmentPage} />
+                    <Route path="/comitet" component={ComitetPage} />
                     <Route path="/psychological-support" component={PsychSupportPage} />
                     <Route
                         path="/usefulInfo/students"

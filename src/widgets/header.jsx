@@ -17,7 +17,7 @@ const navItems = [
     { label: "navigation.selfGovernment", href: "/self-government" },
     // { label: "navigation.services", href: "/services" },
     { label: "navigation.studentHouse", href: "https://studdom.abu.edu.kz/" },
-
+    { label: "navigation.comitet", href: "/comitet" },
     { label: "navigation.events", href: "/events" },
     {
         label: "navigation.opportunities",
