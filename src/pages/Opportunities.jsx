@@ -2,156 +2,180 @@ import { useLocale } from "@/shared/context/locale";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/shared/ui/table";
 import { FormattedMessage } from "react-intl";
 
-import { Badge } from "@/shared/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card";
+import { CalendarDays, Dumbbell, MapPin, Users } from "lucide-react";
 
 export const OpportunitiesPage = () => {
     const { locale } = useLocale()
-    return <section className="container">
-        <h1 className="title"><FormattedMessage id="opportunities.title" /></h1>
-        <section className="w-full bg-slate-200 rounded-lg h-96" />
-        <h2 className="title"><FormattedMessage id="opportunities.schedule" /></h2>
-        <ContestCard {...contestData[locale]} />
-
+    return <section className="container relative py-8 md:py-14">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 bg-[radial-gradient(circle_at_top,rgba(170,58,40,0.12),transparent_68%)]" />
+        <header className="mx-auto max-w-3xl text-center">
+            <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-primary" />
+            <h1 className="text-3xl font-bold tracking-tight md:text-5xl"><FormattedMessage id="opportunities.title" /></h1>
+            <p className="mt-4 text-stone-500 md:text-lg">{pageSubtitle[locale]}</p>
+        </header>
+        <section className="grid gap-4 sm:grid-cols-3">
+            <Stat icon={<Dumbbell />} value="7" label={stats.sections[locale]} />
+            <Stat icon={<Users />} value="205" label={stats.students[locale]} />
+            <Stat icon={<CalendarDays />} value="2026–2027" label={stats.year[locale]} />
+        </section>
         <SportTable />
     </section>
 }
+
+const pageSubtitle = {
+    ru: "Спортивные секции, студенческие конкурсы и новые возможности ABU",
+    kz: "ABU спорт секциялары, студенттік байқаулар және жаңа мүмкіндіктер",
+    en: "ABU sports clubs, student competitions and new opportunities",
+};
+
+const stats = {
+    sections: { ru: "спортивных секций", kz: "спорт секциясы", en: "sports clubs" },
+    students: { ru: "мест для студентов", kz: "студентке арналған орын", en: "student places" },
+    year: { ru: "учебный год", kz: "оқу жылы", en: "academic year" },
+};
+
+const Stat = ({ icon, value, label }) => (
+    <div className="flex items-center gap-4 rounded-2xl border border-black/5 bg-white p-5 shadow-[0_8px_28px_rgba(30,30,30,0.04)]">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">{icon}</span>
+        <div><strong className="block text-xl">{value}</strong><span className="text-sm text-stone-500">{label}</span></div>
+    </div>
+);
 
 const trainingData = {
     ru: [
         {
             name: "Баскетбол",
-            schedule: ["16:00-18:00", "", "16:00-18:00", "", "", ""],
+            schedule: ["", "17:00–19:00", "", "", "17:00–19:00", ""],
             participants: 20,
-            location: "Спортивный зал, Ул.Дулатова 284",
-            instructors: ["Сесерхан Ж.", "Нурпеисов К.Н."],
+            location: "Спортивный зал, ул. Дулатова, 284",
+            instructors: ["Сесерхан Ж."],
         },
         {
             name: "Волейбол",
-            schedule: ["", "", "16:00-18:00", "", "", "16:00-18:00"],
+            schedule: ["17:00–19:00", "", "17:00–19:00", "", "", ""],
             participants: 35,
             location: "Спортивный зал, Ул.Дулатова 284",
-            instructors: ["Темиржанов А.М."],
+            instructors: ["Ногайбаев Т.Т.", "Нурпеисов К.Н."],
         },
         {
             name: "Футзал",
-            schedule: ["", "", "", "", "16:00-18:00", "16:00-18:00"],
+            schedule: ["", "19:00–21:00", "", "17:00–19:00", "", ""],
             participants: 25,
             location: "Спортивный зал, Ул.Дулатова 284",
-            instructors: ["Мухамеджанов Д.Ж.", "Акчабаров М.М."],
+            instructors: ["Акчабаров М.М."],
         },
         {
             name: "NOMAD MMA",
-            schedule: ["16:00-18:00", "", "16:00-18:00", "", "16:00-18:00", ""],
+            schedule: ["16:00–18:00", "", "16:00–18:00", "", "16:00–18:00", ""],
             participants: 45,
-            location: "Корпус №2, Спортивный зал",
-            instructors: ["Саельдинов С.С.", "Омарбеков А.Қ.", "Тлеубергенов К.М."],
+            location: "Корпус №2, спортивный зал, ул. Абая, 107",
+            instructors: ["Саельдинов С.С.", "Жуматаева Т.М.", "Сархад Н.С."],
         },
         {
             name: "Настольный теннис",
-            schedule: ["", "", "", "", "16:00-18:00", "16:00-18:00"],
+            schedule: ["", "", "", "16:00–18:00", "16:00–18:00", ""],
             participants: 15,
             location: "Спортивный зал, Ул.Дулатова 284",
             instructors: ["Нургалиев Д.Н."],
         },
         {
             name: "Панкратион и Грэплинг",
-            schedule: ["", "16:00-18:00", "", "16:00-18:00", "", "16:00-18:00"],
+            schedule: ["", "16:00–18:00", "", "16:00–18:00", "", "16:00–18:00"],
             participants: 45,
-            location: "KUDO.KZ, Ул.Засядко 89",
-            instructors: ["Какимов К.Б.", "Советкалиев Д.Н."],
+            location: "Панкратион ММА Грэпплинг, ул. Засядко, 89",
+            instructors: ["Какимов К.Б."],
         },
         {
             name: "Тоғыз құмалақ",
-            schedule: ["15:00-16:00", "", "", "", "15:00-16:00", ""],
+            schedule: ["15:00–16:00", "", "", "", "15:00–16:00", ""],
             participants: 20,
             location: "Спортивный зал, Ул.Дулатова 284",
-            instructors: ["Айдарханов Р.Ә.", "Саукенов Х.Р."],
+            instructors: ["Саукенов Х.Р.", "Советкалиев Д.Н."],
         },
     ],
     kz: [
         {
             name: "Баскетбол",
-            schedule: ["16:00-18:00", "", "16:00-18:00", "", "", ""],
+            schedule: ["", "17:00–19:00", "", "", "17:00–19:00", ""],
             participants: 20,
             location: "Спорт залы, Дулатов көшесі 284",
-            instructors: ["Сесерхан Ж.", "Нұрпейісов К.Н."],
+            instructors: ["Сесерхан Ж."],
         },
         {
             name: "Волейбол",
-            schedule: ["", "", "16:00-18:00", "", "", "16:00-18:00"],
+            schedule: ["17:00–19:00", "", "17:00–19:00", "", "", ""],
             participants: 35,
             location: "Спорт залы, Дулатов көшесі 284",
-            instructors: ["Теміржанов А.М."],
+            instructors: ["Ноғайбаев Т.Т.", "Нұрпейісов К.Н."],
         },
         {
             name: "Футзал",
-            schedule: ["", "", "", "", "16:00-18:00", "16:00-18:00"],
+            schedule: ["", "19:00–21:00", "", "17:00–19:00", "", ""],
             participants: 25,
             location: "Спорт залы, Дулатов көшесі 284",
-            instructors: ["Мұхамеджанов Д.Ж.", "Ақчабаров М.М."],
+            instructors: ["Ақчабаров М.М."],
         },
         {
             name: "NOMAD MMA",
-            schedule: ["16:00-18:00", "", "16:00-18:00", "", "16:00-18:00", ""],
+            schedule: ["16:00–18:00", "", "16:00–18:00", "", "16:00–18:00", ""],
             participants: 45,
-            location: "2-ғимарат, Спорт залы",
-            instructors: ["Саельдинов С.С.", "Омарбеков А.Қ.", "Тлеубергенов К.М."],
+            location: "№2 корпус, спорт залы, Абай көшесі, 107",
+            instructors: ["Саельдинов С.С.", "Жұматаева Т.М.", "Сархад Н.С."],
         },
         {
             name: "Үстел теннисі",
-            schedule: ["", "", "", "", "16:00-18:00", "16:00-18:00"],
+            schedule: ["", "", "", "16:00–18:00", "16:00–18:00", ""],
             participants: 15,
             location: "Спорт залы, Дулатов көшесі 284",
             instructors: ["Нұрғалиев Д.Н."],
         },
         {
             name: "Панкратион және Грэплинг",
-            schedule: ["", "16:00-18:00", "", "16:00-18:00", "", "16:00-18:00"],
+            schedule: ["", "16:00–18:00", "", "16:00–18:00", "", "16:00–18:00"],
             participants: 45,
-            location: "KUDO.KZ, Засядко көшесі 89",
-            instructors: ["Қакимов К.Б.", "Советқалиев Д.Н."],
+            location: "Панкратион ММА Грэпплинг, Засядко көшесі, 89",
+            instructors: ["Қакимов К.Б."],
         },
         {
             name: "Тоғызқұмалақ",
-            schedule: ["15:00-16:00", "", "", "", "15:00-16:00", ""],
+            schedule: ["15:00–16:00", "", "", "", "15:00–16:00", ""],
             participants: 20,
             location: "Спорт залы, Дулатов көшесі 284",
-            instructors: ["Айдарханов Р.Ә.", "Сәукенов Х.Р."],
+            instructors: ["Сәукенов Х.Р.", "Советқалиев Д.Н."],
         },
     ],
     en: [
         {
             name: "Basketball",
-            schedule: ["16:00–18:00", "", "16:00–18:00", "", "", ""],
+            schedule: ["", "17:00–19:00", "", "", "17:00–19:00", ""],
             participants: 20,
             location: "Sports Hall, 284 Dulatov St.",
-            instructors: ["Seserkhan Zh.", "Nurpeisov K.N."],
+            instructors: ["Seserkhan Zh."],
         },
         {
             name: "Volleyball",
-            schedule: ["", "", "16:00–18:00", "", "", "16:00–18:00"],
+            schedule: ["17:00–19:00", "", "17:00–19:00", "", "", ""],
             participants: 35,
             location: "Sports Hall, 284 Dulatov St.",
-            instructors: ["Temirzhanov A.M."],
+            instructors: ["Nogaibayev T.T.", "Nurpeisov K.N."],
         },
         {
             name: "Futsal",
-            schedule: ["", "", "", "", "16:00–18:00", "16:00–18:00"],
+            schedule: ["", "19:00–21:00", "", "17:00–19:00", "", ""],
             participants: 25,
             location: "Sports Hall, 284 Dulatov St.",
-            instructors: ["Mukhamedzhanov D.Zh.", "Akchabarov M.M."],
+            instructors: ["Akchabarov M.M."],
         },
         {
             name: "NOMAD MMA",
             schedule: ["16:00–18:00", "", "16:00–18:00", "", "16:00–18:00", ""],
             participants: 45,
-            location: "Building No.2, Sports Hall",
-            instructors: ["Saeldinov S.S.", "Omarbekov A.K.", "Tleubergenov K.M."],
+            location: "Building No. 2, sports hall, 107 Abai St.",
+            instructors: ["Saeldinov S.S.", "Zhumatayeva T.M.", "Sarkhad N.S."],
         },
         {
             name: "Table Tennis",
-            schedule: ["", "", "", "", "16:00–18:00", "16:00–18:00"],
+            schedule: ["", "", "", "16:00–18:00", "16:00–18:00", ""],
             participants: 15,
             location: "Sports Hall, 284 Dulatov St.",
             instructors: ["Nurgaliev D.N."],
@@ -160,22 +184,22 @@ const trainingData = {
             name: "Pankration & Grappling",
             schedule: ["", "16:00–18:00", "", "16:00–18:00", "", "16:00–18:00"],
             participants: 45,
-            location: "KUDO.KZ, 89 Zasyadko St.",
-            instructors: ["Kakimov K.B.", "Sovetkaliev D.N."],
+            location: "Pankration MMA Grappling, 89 Zasyadko St.",
+            instructors: ["Kakimov K.B."],
         },
         {
             name: "Togyz Kumalak",
             schedule: ["15:00–16:00", "", "", "", "15:00–16:00", ""],
             participants: 20,
             location: "Sports Hall, 284 Dulatov St.",
-            instructors: ["Aidarhanov R.A.", "Saukenov Kh.R."],
+            instructors: ["Saukenov Kh.R.", "Sovetkaliev D.N."],
         },
     ],
 };
 const scheduleTitle = {
-    ru: "Расписание секции в спортивном зале Alikhan Bokeikhan University (2024–2025)",
-    kz: "Alikhan Bokeikhan University спорт залындағы секция кестесі (2024–2025)",
-    en: "Sports Hall Section Schedule at Alikhan Bokeikhan University (2024–2025)",
+    ru: "Расписание спортивных секций на 2026–2027 учебный год",
+    kz: "2026–2027 оқу жылына арналған спорт секцияларының кестесі",
+    en: "Sports club schedule for the 2026–2027 academic year",
 };
 
 const header = {
@@ -189,10 +213,15 @@ const header = {
         kz: ["Дс", "Сс", "Ср", "Бс", "Жм", "Сб"],
         en: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     },
+    schedule: {
+        ru: "Расписание",
+        kz: "Кесте",
+        en: "Schedule",
+    },
     participants: {
         ru: "Кол-во",
-        kz: "Қатысушылар саны",
-        en: "Participants",
+        kz: "Саны",
+        en: "Qty",
     },
     location: {
         ru: "Место",
@@ -207,161 +236,54 @@ const header = {
 }
 const SportTable = () => {
     const { locale } = useLocale()
-    return <div className="p-4">
-        <h2 className="text-2xl font-bold mb-4">
-            {scheduleTitle[locale]}
-        </h2>
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead>{header.activity[locale]}</TableHead>
-                    {header.days[locale].map((d, id) =>
-                        <TableHead key={id} className={'text-center'}>{d}</TableHead>
-                    )}
-                    <TableHead>{header.participants[locale]}</TableHead>
-                    <TableHead>{header.location[locale]}</TableHead>
-                    <TableHead>{header.instructors[locale]}</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                {trainingData[locale].map((item, index) => (
-                    <TableRow key={index} className={"text-center"}>
-                        <TableCell className="font-medium text-start ">{item.name}</TableCell>
-                        {item.schedule.map((time, i) => (
-                            <TableCell key={i}>{time}</TableCell>
+    const days = header.days[locale];
+
+    return <section className="relative overflow-hidden rounded-3xl border border-primary/15 bg-white p-4 shadow-[0_8px_30px_rgba(30,30,30,0.04)] md:p-7">
+        <div className="absolute inset-x-0 top-0 h-1 bg-primary" />
+        <div className="flex items-center gap-4 border-b border-stone-100 px-2 pb-6">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary"><CalendarDays className="h-5 w-5" /></span>
+            <h2 className="text-xl font-bold md:text-2xl">{scheduleTitle[locale]}</h2>
+        </div>
+        <p className="mt-4 text-sm text-stone-500 md:hidden">← {scrollHint[locale]} →</p>
+        <div className="mt-4 overflow-x-auto rounded-xl border border-stone-300">
+            <Table className="min-w-[1120px] border-collapse">
+                <TableHeader>
+                    <TableRow className="bg-primary/10 hover:bg-primary/10">
+                        <TableHead className="sticky left-0 z-20 w-44 border-r border-primary/20 bg-[#f7e9e6] px-4 text-sm font-bold text-primary">{header.activity[locale]}</TableHead>
+                        {days.map((day) => (
+                            <TableHead key={day} className="w-24 border-r border-primary/15 text-center text-sm font-bold text-primary">{day}</TableHead>
                         ))}
-                        <TableCell>{item.participants}</TableCell>
-                        <TableCell>{item.location}</TableCell>
-                        <TableCell>
-                            {item.instructors.map((instructor, i) => (
-                                <div key={i}>{instructor}</div>
-                            ))}
-                        </TableCell>
+                        <TableHead className="w-20 border-r border-primary/15 text-center text-sm font-bold text-primary">{header.participants[locale]}</TableHead>
+                        <TableHead className="w-60 border-r border-primary/15 text-sm font-bold text-primary">{header.location[locale]}</TableHead>
+                        <TableHead className="w-52 text-sm font-bold text-primary">{header.instructors[locale]}</TableHead>
                     </TableRow>
-                ))}
-            </TableBody>
-        </Table>
-    </div>
-}
-
-
-const contestData = {
-    kz: {
-        title: "📢 БАЙҚАУҒА ШАҚЫРУ!",
-        subtitle: "🎯 Құрметті студенттер мен жастар белсенділері!",
-        description:
-            'Сіздерді "Терроризмге қарсы жастар" атты қалалық байқауға қатысуға шақырамыз. Байқаудың мақсаты – заңға бағынатын мінез-құлықты қалыптастыру, құқықтық мәдениетті арттыру және жастардың азаматтық жауапкершілігін нығайту.',
-        directionsTitle: "📌 Байқау бағыттары:",
-        directions: [
-            "Бейнероликтер, әлеуметтік роликтер",
-            "Плакаттар, инфографика",
-        ],
-        participantsTitle: "👥 Қатысушылар:",
-        participants:
-            "Колледждер мен жоғары оқу орындарының студенттері, жастар ұйымдары, бастамашыл топтар.",
-        rewardsTitle: "🏆 Марапаттар:",
-        rewards:
-            "Озық қатысушылар дипломдармен және естелік сыйлықтармен марапатталады!",
-        note:
-            "❗ Азаматтық ұстанымыңызды білдіруге және қоғам қауіпсіздігіне үлес қосуға мүмкіндік жіберіп алмаңыз!",
-        hashtags: [
-            "#ЖастарТерроризмгеҚарсы",
-            "#Антитеррор",
-            "#ҚауіпсізҚоғам",
-        ],
-    },
-    ru: {
-        title: "📢 ОБЪЯВЛЕНИЕ О КОНКУРСЕ!",
-        subtitle: "🎯 Уважаемые студенты и молодёжные активисты!",
-        description:
-            'Приглашаем вас принять участие в городском конкурсе "Молодёжь против терроризма", целью которого является формирование законопослушного поведения, повышение правовой культуры и укрепление гражданской ответственности молодёжи.',
-        directionsTitle: "📌 Направления конкурса:",
-        directions: [
-            "Видеоролики, социальные ролики",
-            "Плакаты, инфографика",
-        ],
-        participantsTitle: "👥 Участники:",
-        participants:
-            "Студенты колледжей и университетов, молодёжные организации, инициативные группы.",
-        rewardsTitle: "🏆 Награды:",
-        rewards:
-            "Лучшие участники будут награждены дипломами и памятными призами!",
-        note:
-            "❗ Не упусти возможность заявить свою гражданскую позицию и внести вклад в безопасность общества!",
-        hashtags: [
-            "#МолодёжьПротивТерроризма",
-            "#Антитеррор",
-            "#МыЗаБезопасность",
-        ],
-    },
-    en: {
-        title: "📢 CALL FOR PARTICIPATION!",
-        subtitle: "🎯 Dear students and youth activists!",
-        description:
-            'We invite you to take part in the citywide contest "Youth Against Terrorism", aimed at promoting law-abiding behavior, enhancing legal awareness, and strengthening the civic responsibility of young people.',
-        directionsTitle: "📌 Contest Categories:",
-        directions: ["Video clips, social videos", "Posters, infographics"],
-        participantsTitle: "👥 Participants:",
-        participants:
-            "College and university students, youth organizations, and initiative groups.",
-        rewardsTitle: "🏆 Awards:",
-        rewards:
-            "Top participants will be awarded certificates and memorable prizes!",
-        note:
-            "❗ Don’t miss the chance to express your civic stance and contribute to public safety!",
-        hashtags: ["#YouthAgainstTerrorism", "#AntiTerror", "#WeStandForSafety"],
-    },
-}
-
-
-function ContestCard(content) {
-    return (
-        <Card className="max-w-xl mx-auto mt-8 shadow-xl rounded-2xl p-4 border border-gray-200">
-            <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl">
-                    {content.title}
-                </CardTitle>
-                <p className="text-sm text-muted-foreground">{content.subtitle}</p>
-            </CardHeader>
-
-            <CardContent className="space-y-4">
-                <p>{content.description}</p>
-
-                <div>
-                    <h3 className="font-semibold flex items-center gap-2">
-                        {content.directionsTitle}
-                    </h3>
-                    <ul className="list-disc list-inside pl-2 space-y-1">
-                        {content.directions.map((item, idx) => (
-                            <li key={idx}>{item}</li>
-                        ))}
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 className="font-semibold flex items-center gap-2">
-                        {content.participantsTitle}
-                    </h3>
-                    <p>{content.participants}</p>
-                </div>
-
-                <div>
-                    <h3 className="font-semibold flex items-center gap-2">
-                        {content.rewardsTitle}
-                    </h3>
-                    <p>{content.rewards}</p>
-                </div>
-
-                <p className="text-red-600 font-medium">{content.note}</p>
-
-                <div className="flex flex-wrap gap-2 mt-4">
-                    {content.hashtags.map((tag, idx) => (
-                        <Badge key={idx} variant="outline">
-                            {tag}
-                        </Badge>
+                </TableHeader>
+                <TableBody>
+                    {trainingData[locale].map((item, index) => (
+                        <TableRow key={item.name} className={index % 2 ? "bg-stone-50" : "bg-white"}>
+                            <TableCell className={`sticky left-0 z-10 border-r border-stone-300 px-4 py-5 text-sm font-bold ${index % 2 ? "bg-stone-50" : "bg-white"}`}>{item.name}</TableCell>
+                            {item.schedule.map((time, dayIndex) => (
+                                <TableCell key={dayIndex} className="border-r border-stone-200 px-2 py-5 text-center text-sm">
+                                    {time ? <strong className="inline-flex rounded-md bg-primary/10 px-2 py-1 font-semibold text-primary">{time}</strong> : <span className="text-stone-300">—</span>}
+                                </TableCell>
+                            ))}
+                            <TableCell className="border-r border-stone-200 text-center text-sm font-bold">{item.participants}</TableCell>
+                            <TableCell className="border-r border-stone-200 py-4 text-sm leading-6 text-stone-600">
+                                <span className="flex gap-2"><MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />{item.location}</span>
+                            </TableCell>
+                            <TableCell className="py-4 text-sm leading-6">
+                                {item.instructors.map((instructor) => <div key={instructor}>{instructor}</div>)}
+                            </TableCell>
+                        </TableRow>
                     ))}
-                </div>
-            </CardContent>
-        </Card>
-    )
+                </TableBody>
+            </Table>
+        </div>
+    </section>
 }
+
+const scrollHint = {
+    ru: "Проведите по таблице",
+    kz: "Кестені жылжытыңыз",
+    en: "Swipe the table",
+};
